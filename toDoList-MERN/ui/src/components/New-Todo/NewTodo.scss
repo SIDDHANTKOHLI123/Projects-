@@ -1,0 +1,37 @@
+.inputfield{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+    overflow:auto;
+}   
+
+
+input[type ='text']{
+    height: 20px;
+    border-radius: 5px;
+    border:none;
+    padding:20px
+}
+
+input[type ='submit']{
+    @extend input[type ='text'];
+    background-color: #32a0a1;
+    color: white;
+    cursor: pointer;
+}
+
+input[type ='date']{
+    @extend input[type ='text'];
+}
+
+input[type ='time']{
+    @extend input[type ='text'];
+   
+}
+
+
+input[type = 'text']::placeholder{
+    text-align: center;
+}

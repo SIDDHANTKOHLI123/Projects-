@@ -1,0 +1,9 @@
+@import './Todo-Items/todolist.scss';
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  max-width: 79%;
+  margin: auto;
+}
+
