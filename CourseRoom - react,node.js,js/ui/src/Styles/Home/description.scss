@@ -1,0 +1,42 @@
+.description {
+    display: flex;
+    width: 50%;
+  }
+  .child1 {
+    width: 1500px;
+    float: left;
+    height: 300px;
+        background-color: white;
+}
+.child2 {
+    width:200px;
+    float: left;
+    height: 100px;
+    
+}
+.child2 img{
+    width:800px;
+    height: 500px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.courseRoom{
+    color:rgba(190, 136, 20, 0.651)
+}
+p{
+    font-size: larger;
+    line-height: 2;
+
+}
+.child1{
+    padding-left: 100px;
+}
+
+@media screen and (max-width: 1100px) {
+    .child1{
+        margin-bottom:20px;
+    }
+     .child1 p,h1 {
+       font-size: small;
+     }
+   }

@@ -1,0 +1,23 @@
+.menuTitle {
+    /* font-family: cursive; */
+
+    background-color: black;
+    color: white;
+    position: relative;
+    top: 250px;
+    text-align: center;
+  }
+  .Title{
+    background-color: black;
+    color: white;
+    position: relative;
+    top: 350px;
+    text-align: center;
+  }
+  .courseselTitle{
+    background-color: black;
+    color: white;
+    position: relative;
+    top: 300px;
+    text-align: center;
+  }

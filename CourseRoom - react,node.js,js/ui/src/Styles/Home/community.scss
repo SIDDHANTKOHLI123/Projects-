@@ -1,0 +1,42 @@
+
+.profile-container{
+    
+    position: relative;
+    top:300px;
+    width: 70vw;
+    height: auto;position: relative;
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+}
+
+.profile {
+    border-radius: 15px;
+    width: 400px;
+    height: 450px;
+    margin: 20px;
+    padding:50px
+    
+  }
+.imageround{
+    border-radius: 110%;
+    overflow :hidden;
+        height :200px;
+        width:300px
+    
+}
+.profile-title{
+    color:blue ;
+    text-align: center;
+}
+.profile-text{
+    text-align: center;
+}
+@media screen and (max-width: 600px) {
+    .profile-container {
+      width: 50%;
+      display: flex-wrap;
+      flex-wrap:wrap;
+      margin-bottom: 20px;
+    }
+}
