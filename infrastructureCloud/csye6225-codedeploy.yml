@@ -61,7 +61,7 @@ Resources:
               - codedeploy:GetApplicationRevision
               - codedeploy:GetDeployment
             Resource:
-              - "arn:aws:codedeploy:us-east-1:836976629117:application:csye6225-webapp"
+              - "arn:aws:codedeploy:us-east-1:x:application:csye6225-webapp"
           - Effect: Allow
             Action:
               - codedeploy:CreateDeployment
@@ -72,9 +72,9 @@ Resources:
             Action:
               - codedeploy:GetDeploymentConfig
             Resource:
-              - 'arn:aws:codedeploy:us-east-1:836976629117:deploymentconfig:CodeDeployDefault.OneAtATime'
-              - 'arn:aws:codedeploy:us-east-1:836976629117:deploymentconfig:CodeDeployDefault.HalfAtATime'
-              - 'arn:aws:codedeploy:us-east-1:836976629117:deploymentconfig:CodeDeployDefault.AllAtOnce'
+              - 'arn:aws:codedeploy:us-east-1:x:deploymentconfig:CodeDeployDefault.OneAtATime'
+              - 'arn:aws:codedeploy:us-east-1:x:deploymentconfig:CodeDeployDefault.HalfAtATime'
+              - 'arn:aws:codedeploy:us-east-1:x:deploymentconfig:CodeDeployDefault.AllAtOnce'
       Users:
         - "ghactions-app"
 
@@ -88,7 +88,7 @@ Resources:
             Action:
               - 'lambda:UpdateFunctionCode'
             Resource:
-              - 'arn:aws:lambda:us-east-1:836976629117:function:csye6225-spring2022'
+              - 'arn:aws:lambda:us-east-1:x:function:csye6225-spring2022'
       PolicyName: Github-Lambda-Updates
       Users:
         - ghactions-app

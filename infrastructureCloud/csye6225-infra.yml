@@ -528,62 +528,7 @@ Resources:
       VPCSecurityGroups: 
         - !Ref DBSecurityGroup
 
-# # Create EC2 Instance
-#   EC2Instance:
-#     Type: AWS::EC2::Instance
-#     Properties:
-#       ImageId: !Ref ImageId
-#       InstanceType: t2.micro
-#       KeyName: kinjal
-#       UserData:
-#         Fn::Base64: 
-#           !Sub |
-#               #!/bin/bash
-#               cd /home/ec2-user
-#               touch webservice.service
-#               echo "[Unit]" >> webservice.service
-#               echo "Description=CSYE-6225 - Web Service" >> webservice.service
-#               echo "After=syslog.target" >> webservice.service
-#               echo "[Service]" >> webservice.service
-#               echo "User=root" >> webservice.service
-#               echo "Environment=\"db_host=${DatabaseInstance.Endpoint.Address}\"" >> webservice.service
-#               echo "Environment=\"db_name=csye6225\"" >> webservice.service
-#               echo "Environment=\"db_username=${DatabaseUser}\"" >> webservice.service
-#               echo "Environment=\"db_password=${DatabasePassword}\"" >> webservice.service
-#               echo "Environment=\"bucket_name=${S3Bucket}\"" >> webservice.service
-#               echo "Environment=\"region=US-EAST-1\"" >> webservice.service
-#               echo "ExecStart=/usr/bin/java -jar home/ec2-user/cloud-0.0.1-SNAPSHOT.jar" >> webservice.service
-#               echo "SuccessExitStatus=143" >> webservice.service
-#               echo "Restart=always" >> webservice.service
-#               echo "RestartSec=5" >> webservice.service
-#               echo "[Install]" >> webservice.service
-#               echo "WantedBy=multi-user.target" >> webservice.service
-#               sudo cp /home/ec2-user/webservice.service /etc/systemd/system/
-#               chmod 764 application.properties
-#               sudo systemctl daemon-reload
-#               sudo systemctl enable webservice.service
-#               sudo systemctl start webservice.service
-#               sudo systemctl status webservice.service
-#       BlockDeviceMappings:
-#         - DeviceName: /dev/xvda
-#           Ebs:
-#             VolumeType: "gp2"
-#             DeleteOnTermination: "true"
-#             VolumeSize: "20"
-#       NetworkInterfaces:
-#         - AssociatePublicIpAddress: "true"
-#           DeviceIndex: "0"
-#           SubnetId: !Ref PublicSubnet2
-#           GroupSet: [!Ref SSHSecurityGroup]
-#       IamInstanceProfile: !Ref DemoInstanceProfile
-#       Tags:
-#         - Key: Name
-#           Value: !Sub "${AWS::StackName}-EC2"
 
-
-#############################################Assignment6 changes ####################
-
-  ### CREATE LOAD BALANCER SECURITY GROUP ###
   loadbalancersecuritygroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
@@ -653,7 +598,7 @@ Resources:
     Type: "AWS::ElasticLoadBalancingV2::Listener"
     Properties:
       Certificates:
-        - CertificateArn: arn:aws:acm:us-east-1:836976629117:certificate/d98e20e5-707f-4c8b-a31e-8c572b7ec956
+        - CertificateArn: arn:aws:acm:us-east-1:x:certificate/y
       DefaultActions:
         - Type: "forward"
           TargetGroupArn: !Ref ApplicationTargetGroup
@@ -816,7 +761,7 @@ Resources:
                 echo "After=syslog.target" >> webservice.service
                 echo "[Service]" >> webservice.service
                 echo "User=root" >> webservice.service
-                echo "Environment=\"TOPIC_ARN=arn:aws:sns:us-east-1:836976629117:csye6225-myTopic\"" >> webservice.service
+                echo "Environment=\"TOPIC_ARN=arn:aws:sns:us-east-1:x:csye6225-myTopic\"" >> webservice.service
                 echo "Environment=\"publishMetrics=true\"" >> webservice.service
                 echo "Environment=\"metricsServerHostname=localhost\"" >> webservice.service
                 echo "Environment=\"metricsServerPort=8125\"" >> webservice.service
@@ -950,13 +895,13 @@ Resources:
               - logs:GetLogEvents
               - logs:CreateLogStream
             Resource:
-              - arn:aws:logs:us-east-1:836976629117:*
+              - arn:aws:logs:us-east-1:x:*
           - Effect: Allow
             Action:
               - ses:SendEmail
               - ses:SendRawEmail
             Resource:
-              - "arn:aws:ses:us-east-1:836976629117:identity/demo.siddhantkohli.me"
+              - "arn:aws:ses:us-east-1:x:identity/demo.siddhantkohli.me"
       Roles:
         - !Ref LambdaExecutionRole
 
@@ -1051,13 +996,13 @@ Resources:
           - Sid: Enable IAM User Permissions
             Effect: Allow
             Principal:
-              AWS: 'arn:aws:iam::836976629117:root'
+              AWS: 'arn:aws:iam::x:root'
             Action: 'kms:*'
             Resource: '*'
           - Sid: Allow administration of the key
             Effect: Allow
             Principal:
-              AWS: 'arn:aws:iam::836976629117:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling'
+              AWS: 'arn:aws:iam::x:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling'
             Action:
               - 'kms:Create*'
               - 'kms:Describe*'
@@ -1075,7 +1020,7 @@ Resources:
           - Sid: Allow use of the key
             Effect: Allow
             Principal:
-              AWS: 'arn:aws:iam::836976629117:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling'
+              AWS: 'arn:aws:iam::x:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling'
             Action:
               - 'kms:DescribeKey'
               - 'kms:Encrypt'
@@ -1105,7 +1050,7 @@ Resources:
           - Sid: Enable IAM User Permissions
             Effect: Allow
             Principal:
-              AWS: 'arn:aws:iam::836976629117:root'
+              AWS: 'arn:aws:iam::x:root'
             Action: 'kms:*'
             Resource: '*'
           - Sid: Allow administration of the key
@@ -1114,7 +1059,7 @@ Resources:
               AWS: 
                 - !GetAtt CodeDeployEC2ServiceRole.Arn
                 - !GetAtt CodeDeployServiceRole.Arn
-                - 'arn:aws:iam::836976629117:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling'
+                - 'arn:aws:iam::x:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling'
             Action:
               - 'kms:Create*'
               - 'kms:Describe*'
@@ -1135,7 +1080,7 @@ Resources:
               AWS: 
                 - !GetAtt CodeDeployEC2ServiceRole.Arn
                 - !GetAtt CodeDeployServiceRole.Arn
-                - 'arn:aws:iam::836976629117:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling'
+                - 'arn:aws:iam::x:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling'
             Action:
               - 'kms:DescribeKey'
               - 'kms:Encrypt'
