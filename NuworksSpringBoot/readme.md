@@ -20,6 +20,8 @@ CSS
 IDE : Spring Tool Suite
 
 Roles
-Role	Description
-Coop Faculty	Check Unassigned Students in the system and assign students to themselves. Create / Update and Delete Jobs in the System. View their Profile. View all their Student Applications in a PDF. View Statistics of the system using AJAX
-Student	View their profile. View all the Jobs in the system and apply for them only if they have a Coop Faculty assigned. Create Applications. View all the applications in the system. Delete Applications.
+Role Description:
+
+Coop Faculty-	Check Unassigned Students in the system and assign students to themselves. Create / Update and Delete Jobs in the System. View their Profile. View all their Student Applications in a PDF. View Statistics of the system using AJAX
+
+Student	- View their profile. View all the Jobs in the system and apply for them only if they have a Coop Faculty assigned. Create Applications. View all the applications in the system. Delete Applications.
