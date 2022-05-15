@@ -1,0 +1,94 @@
+Description:
+  Assign roles and policies to the newly created user for Continuous Deployment
+
+Parameters:
+  EnvironmentName:
+    Description: An environment name that is prefixed to resource names
+    Type: String
+    Default: newVPC
+Resources:
+  CodeDeployEC2S3 :
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyName: "CodeDeploy-EC2-S3"
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - s3:GetBucketLocation
+              - s3:GetObject
+              - s3:GetObjectVersion
+              - s3:PutObject
+              - s3:ListBucket
+            Resource:
+              - "arn:aws:s3:::codedeploy.siddhantkohli.me"
+              - "arn:aws:s3:::codedeploy.siddhantkohli.me/*"
+      Users:
+        - "ghactions-app"
+
+          
+  GHUploadToS3 :
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyName: "GH-Upload-To-S3"
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - s3:PutObjectAcl
+              - s3:GetObject
+              - s3:GetObjectVersion
+              - s3:PutObject
+              - s3:ListBucket
+            Resource:
+              - "arn:aws:s3:::codedeploy.siddhantkohli.me"
+              - "arn:aws:s3:::codedeploy.siddhantkohli.me/*"
+      Users:
+        - "ghactions-app"
+
+  GHCodeDeploy :
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyName: "GH-Code-Deploy"
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - codedeploy:RegisterApplicationRevision
+              - codedeploy:GetApplicationRevision
+              - codedeploy:GetDeployment
+            Resource:
+              - "arn:aws:codedeploy:us-east-1:836976629117:application:csye6225-webapp"
+          - Effect: Allow
+            Action:
+              - codedeploy:CreateDeployment
+              - codedeploy:GetDeployment
+            Resource:
+              - '*'
+          - Effect: Allow
+            Action:
+              - codedeploy:GetDeploymentConfig
+            Resource:
+              - 'arn:aws:codedeploy:us-east-1:836976629117:deploymentconfig:CodeDeployDefault.OneAtATime'
+              - 'arn:aws:codedeploy:us-east-1:836976629117:deploymentconfig:CodeDeployDefault.HalfAtATime'
+              - 'arn:aws:codedeploy:us-east-1:836976629117:deploymentconfig:CodeDeployDefault.AllAtOnce'
+      Users:
+        - "ghactions-app"
+
+  LambdaUpdate:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Action:
+              - 'lambda:UpdateFunctionCode'
+            Resource:
+              - 'arn:aws:lambda:us-east-1:836976629117:function:csye6225-spring2022'
+      PolicyName: Github-Lambda-Updates
+      Users:
+        - ghactions-app
