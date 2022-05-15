@@ -3,6 +3,7 @@ WebDev
 
 NU Careers Web Applications
 
+Attached is a war executable file
 Synopsis
 A web-application built for Northeastern students and coop faculty in order to create easy access regarding internships and coops. It is build using Spring Boot and Hibernate and data is stored in a MySQL database. Every has to register with their husky address in order to create a profile, as goes to the Coop Faculty. Each role has different functionalities and access operations. This allows them to perform CRUD operations on different data.
 
