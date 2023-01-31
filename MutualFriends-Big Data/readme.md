@@ -16,19 +16,29 @@ Please find the above output for the following pairs. (0,4), (20, 22939), (1, 29
 Steps to run jar file:
 
 From the terminal go inside MutualFriend directory
+
 Delete output directory - "/user/siddhant/output1" if it already exists
+
 Type the following command: hadoop jar MutualFriend.jar MutualFriend /user/siddhant/input/soc-LiveJournal1Adj.txt /user/siddhant/output1
+
 Output is at : /user/siddhant/output1/part-r-00000
+
 Now, to get output for specific friends pair say 0,4 type the following command: hdfs dfs -cat /user/siddhant/output1/part-r-00000 | grep "0,4<press Ctrl+v tab>" You will get output as : 0,4 8,14,15,18,27,72,80,74,77
+
 Similarly to get output for:
+
 20,22939 type the command: hdfs dfs -cat /user/siddhant/output1/part-r-00000 | grep "20,22939<press Ctrl+v tab>" .
 Output : 20,22939 1,5
+
 1,29826 type the command: hdfs dfs -cat /user/siddhant/output1/part-r-00000 | grep "1,29826<press Ctrl+v tab>".
 Output : 1,29826
+
 6222,19272 type the command: hdfs dfs -cat /user/siddhant/output1/part-r-00000 | grep "6222,19272<press Ctrl+v tab>" .
 Output : 6222,19272 19263,19280,19281,19282
+
 28041,28056 type the command: hdfs dfs -cat /user/siddhant/output1/part-r-00000 | grep "28041,28056<press Ctrl+v tab>" .
 Output : 28041,28056 6245,28054,28061
+
 Note: Since the output from reducer is seperated by TAB press Ctrl+v and tab to get tab key value when using grep command. Not following this note might not give you output.
 
 
@@ -43,6 +53,9 @@ File: TopTenFriends.jar
 Steps to run jar file:
 
 From the terminal go inside MutualFriend directory
+
 Delete output directory - "/user/siddhant/output2_1" and "/user/siddhant/output2_2" if it already exists
+
 Type the following command: hadoop jar TopTenFriends.jar TopTenFriends /user/siddhant/input/soc-LiveJournal1Adj.txt /user/siddhant/output2_1 /user/siddhant/output2_2
+
 Output is at : /user/siddhant/output2_2/part-r-00000 
