@@ -1,4 +1,4 @@
-DAMG6210-Elevator-Management
+Elevator-Management-System
 ----------------------------------------
 Repository for implementation of an Elevator Management System on SQL server.
 
