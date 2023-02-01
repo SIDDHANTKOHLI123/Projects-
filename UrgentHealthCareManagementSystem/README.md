@@ -1,8 +1,17 @@
 Urgent Health Care Management System
 ----------------------------------------
 
-• Implemented and debugged a globally scalable multi-level Java Swing application ecosystem that interacts between multiple enterprises and organizations by using work queues 
+Implemented and debugged a globally scalable multi-level Java Swing application ecosystem that interacts between multiple enterprises and organizations by using work queues 
 
+
+Problem Statement
+-----------------------
+• Developing communication technologies in a modern healthcare environment, for connecting healthcare professionals with other caretakers and healthcare entities, ensuring the best, most effective, immediate care to patients
+
+• Need a single platform for patients to request and track their records
+
+Solution
+------------------------
 • This application is an improved tracking of the healthcare system that will save you a lot of time and resources for all the entities involved in the system
 
 • Each entity in our application has it own share in tracking and providing complete understanding of health risks, medicine demands in the community. This system will help the health authorities to better analyze the risks and manage the health resources
