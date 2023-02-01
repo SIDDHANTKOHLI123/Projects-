@@ -29,4 +29,4 @@ Features used in CourseRoom
 - Postman is used for API testing on a website.
 
 - React DOM for structuring and rendering. 
-![image](https://user-images.githubusercontent.com/90789758/215969342-a650a497-f5a6-46e9-8f2b-d6567b40379d.png)
+
