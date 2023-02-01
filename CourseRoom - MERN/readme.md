@@ -10,3 +10,23 @@ CourseRoom - MERN
 • Used REST API’s to fetch relevant tutorials via YouTube JS. 
 
 • Implemented Security features like password encryption, user authentication using JWT token, crypt, storing data in session tokens and notification services for user support.
+
+Features used in CourseRoom
+----------------------------
+
+- Used mongoose for connecting MongoDB.
+
+- Used Material-UI for the front-end development.
+
+- Used  EmailJS API for the registration process and contact us page.
+
+- Used React and Context for a responsive website.
+
+- Used React hooks for the navigation bar.
+
+- Display Flex wrap is used in the website for the reactive site.
+
+- Postman is used for API testing on a website.
+
+- React DOM for structuring and rendering. 
+![image](https://user-images.githubusercontent.com/90789758/215969342-a650a497-f5a6-46e9-8f2b-d6567b40379d.png)
