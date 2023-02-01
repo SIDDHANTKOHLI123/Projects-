@@ -12,3 +12,6 @@ Urgent Health Care Management System
 • Developed features facilitating users to login and raise requests for appointment booking, lab-test management, pharmacy access, emergency vehicle request and administration panel 
 
 • Integrated google maps API which enables the emergency vehicle with directions and timely services to patients
+
+
+
