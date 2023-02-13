@@ -2,7 +2,7 @@ Welcome to SnapChat !!!!
 There are bunch of filters which you can try 
 -------------------------
 
-This will capture your live video and then put a filter on top of it from folder filtes. The current filter is star.png
+This will capture your live video and then put a filter on top of it from folder filters. The current filter is star.png
 --------------------------
 
 Run the main file with main.py in terminal
