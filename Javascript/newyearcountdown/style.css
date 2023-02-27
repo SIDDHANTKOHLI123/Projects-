@@ -1,0 +1,43 @@
+body{
+    background-image: url("fire.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+h1 , p, span{
+    color: white;
+    
+}
+
+p{
+    text-shadow: 2px 2px #00ccff;
+}
+
+#mainhead{
+    padding-top: 30px;
+    text-align: center;
+}
+
+.countdown-container{
+    margin-left: 30%;
+    padding-top:30px;
+   display: flex;
+   text-align: center;
+   align-content: center;
+  
+}
+.datesep{
+    text-align: center;
+}
+
+.bigtext{
+    font-size: 6rem;
+    line-height: 1;
+    margin: 0 2rem;
+
+}
